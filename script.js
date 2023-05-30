@@ -49,5 +49,4 @@ function displayUsers(users) {
     });
 }
 
-// Call the displayUsers function initially to show any existing users
-displayUsers(userList);
+
