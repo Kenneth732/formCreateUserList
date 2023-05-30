@@ -20,6 +20,9 @@ document.querySelector('#form').addEventListener('submit', (e) => {
 
     // Call a function to handle displaying the users
     displayUsers(userList);
+
+    // Reset the form fields
+    e.target.reset();
 });
 
 // Function to display the users
@@ -33,10 +36,18 @@ function displayUsers(users) {
     // Iterate over the users array and generate HTML for each user
     users.forEach(user => {
         let userElement = document.createElement('div');
+        userElement.className = 'userElement';
         userElement.innerHTML = `
-            <h3>Name: ${user.name}</h3>
-            <img src="${user.img}" alt="User Image">
+            <div class='card'>
+                <div class='img-list'>
+                    <img src="${user.img}" alt="User Image">
+                </div>
+                <h3>Name: ${user.name}</h3>
+            </div>
         `;
         userListElement.appendChild(userElement);
     });
 }
+
+// Call the displayUsers function initially to show any existing users
+displayUsers(userList);
