@@ -9,6 +9,12 @@ document.querySelector('#form').addEventListener('submit', (e) => {
     let name = e.target.name.value;
     let img = e.target.img.value;
 
+    // Check if name and img fields are empty
+    if (name.trim() === '' || img.trim() === '') {
+        alert('Please enter both name and image URL');
+        return;
+    }
+
     // Create a new user object
     let newUser = {
         name: name,
@@ -49,4 +55,5 @@ function displayUsers(users) {
     });
 }
 
-
+// Call the displayUsers function initially to show any existing users
+displayUsers(userList);
